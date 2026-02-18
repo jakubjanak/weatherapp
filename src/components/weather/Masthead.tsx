@@ -15,8 +15,8 @@ export default function Masthead() {
     }, [])
     return (
         <div className="border-t-4 border-b-4 border-ink flex items-center justify-between py-2 mb-0">
-            <div className="text-4xl tracking-wider font-bebas text-ink leading-none">☁️ POČASÍ</div>
-            <div className="text-xs text-muted text-right leading-1.5">{date}</div>
+            <div className="font-bebas text-[34px] tracking-wider text-ink leading-none">☁️ POČASÍ</div>
+            <div className="text-[9px] text-muted text-right leading-relaxed">{date}</div>
         </div>
     )
 }

@@ -4,8 +4,14 @@
 @theme {
     --font-space: 'Space Mono', monospace;
     --font-bebas: 'Bebas Neue', cursive;
+    --font-news: 'Newsreader', serif;
 
     --color-ink: #1a1410;
     --color-muted: #8a7f72;
     --color-paper: #f2ede4;
+    --color-red: #d63c2f;
+
+    --grid-cols-custom: 1fr auto;
+
+    --items-gridStart: start;
 }
