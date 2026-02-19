@@ -5,6 +5,7 @@ import CityHeadline from "./components/weather/CityHeadline"
 import ConditionBanner from "./components/weather/ConditionBanner"
 import StatsRow from "./components/weather/StatsRow"
 import ForecastStrip from "./components/weather/ForecastStrip"
+import Footer from "./components/weather/Footer"
 import { useState } from "react"
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <ConditionBanner data={data} />
         <StatsRow data={data} />
         <ForecastStrip data={fiveDayData} />
+        <Footer />
       </AppLayout>
     </>
   )
