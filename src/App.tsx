@@ -3,6 +3,7 @@ import Masthead from "./components/weather/Masthead"
 import SearchBar from "./components/search/SearchBar"
 import CityHeadline from "./components/weather/CityHeadline"
 import ConditionBanner from "./components/weather/ConditionBanner"
+import StatsRow from "./components/weather/StatsRow"
 import { useState } from "react"
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <SearchBar setCityName={setCityName} setData={setData} />
         <CityHeadline cityName={cityName} data={data} />
         <ConditionBanner data={data} />
+        <StatsRow data={data} />
       </AppLayout>
     </>
   )

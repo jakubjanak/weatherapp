@@ -6,8 +6,8 @@ export default function CityHeadline({ cityName, data }: { cityName: string, dat
                 <div className="font-news italic text-[13px] text-muted mt-2">{data && data.sys.country || "Město"}</div>
             </div>
             <div className="text-right">
-                <div className="font-bebas text-[80px] leading-[0.85] text-ink">{data && data.main.temp || "0"}</div>
-                <span className="font-mono text-[14px] text-weather-red block mt-1">°C</span>
+                <div className="font-bebas text-[80px] leading-[0.85] text-ink">{data && Math.round(data.main.temp) || "0"}</div>
+                <span className="font-mono text-[14px] text-red block mt-1">°C</span>
             </div>
         </div>
     )
