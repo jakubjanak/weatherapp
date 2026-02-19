@@ -1,8 +1,8 @@
 import { useState, type SetStateAction } from "react"
-import { getWeather } from "../../hooks/useWeather"
+import { getWeather, getFiveDayForecast } from "../../hooks/useWeather"
 import { type Dispatch } from "react"
 
-export default function SearchBar({ setCityName, setData }: { setCityName: Dispatch<SetStateAction<string>>, setData: Dispatch<SetStateAction<any>> }) {
+export default function SearchBar({ setCityName, setData, setFiveDayData }: { setCityName: Dispatch<SetStateAction<string>>, setData: Dispatch<SetStateAction<any>>, setFiveDayData: Dispatch<SetStateAction<any>> }) {
     // je potreba dodelat funkcionalitu pro hledani, UI hotove
     const [value, setValue] = useState("")
 
@@ -13,9 +13,12 @@ export default function SearchBar({ setCityName, setData }: { setCityName: Dispa
     const onSubmit = async () => {
         try {
             const weatherData = await getWeather(value)
+            const fiveDayData = await getFiveDayForecast(value)
             setCityName(value)
             setData(weatherData)
+            setFiveDayData(fiveDayData)
             console.log(weatherData)
+            console.log(fiveDayData)
         } catch (error) {
             console.error("Error fetching weather data:", error)
         }
