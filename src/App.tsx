@@ -7,11 +7,12 @@ import StatsRow from "./components/weather/StatsRow"
 import ForecastStrip from "./components/weather/ForecastStrip"
 import Footer from "./components/weather/Footer"
 import { useState } from "react"
+import type { ForecastDay } from "./types/weather"
 
 function App() {
   const [cityName, setCityName] = useState("")
   const [data, setData] = useState()
-  const [fiveDayData, setFiveDayData] = useState()
+  const [fiveDayData, setFiveDayData] = useState<ForecastDay[]>([])
 
   return (
     <>
