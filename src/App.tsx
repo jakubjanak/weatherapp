@@ -7,22 +7,24 @@ import StatsRow from "./components/weather/StatsRow"
 import ForecastStrip from "./components/weather/ForecastStrip"
 import Footer from "./components/weather/Footer"
 import { useState } from "react"
-import type { ForecastDay } from "./types/weather"
+import type { ForecastDay, WeatherData } from "./types/weather"
 
 function App() {
   const [cityName, setCityName] = useState("")
-  const [data, setData] = useState()
+  const [data, setData] = useState<WeatherData | null>(null)
   const [fiveDayData, setFiveDayData] = useState<ForecastDay[]>([])
+  const [forecastData, setForecastData] = useState<WeatherData | null>(null)
+  const [changeDay, setChangeDay] = useState(false)
 
   return (
     <>
       <AppLayout>
         <Masthead />
         <SearchBar setCityName={setCityName} setData={setData} setFiveDayData={setFiveDayData} />
-        <CityHeadline cityName={cityName} data={data} />
-        <ConditionBanner data={data} />
-        <StatsRow data={data} />
-        <ForecastStrip data={fiveDayData} />
+        <CityHeadline cityName={cityName} data={changeDay ? forecastData : data} />
+        <ConditionBanner data={changeDay ? forecastData : data} />
+        <StatsRow data={changeDay ? forecastData : data} />
+        <ForecastStrip data={fiveDayData} setChangeDay={setChangeDay} setForecastData={setForecastData} />
         <Footer />
       </AppLayout>
     </>

@@ -1,16 +1,5 @@
 import type { ForecastDay } from '../types/weather';
-
-interface ForecastItem {
-    dt: number;
-    dt_txt: string;
-    main: {
-        temp: number;
-    };
-    weather: Array<{
-        main: string;
-        description: string;
-    }>;
-}
+import type { ForecastItem } from '../types/weather';
 
 export function processForecast(forecastList: ForecastItem[]): ForecastDay[] {
     const dailyForecasts: { [key: string]: ForecastItem } = {};
@@ -33,9 +22,14 @@ export function processForecast(forecastList: ForecastItem[]): ForecastDay[] {
     });
 
     return Object.values(dailyForecasts)
-        .slice(0, 5) // pouze 5 dní, první nepotřebuji
+        .slice(0, 5) // pouze 5 dní
         .map((item) => ({
             name: getDayName(item.dt),
             temp: item.main.temp,
+            description: item.weather[0].description,
+            speed: item.wind.speed,
+            pressure: item.main.pressure,
+            humidity: item.main.humidity,
+            icon: item.weather[0].icon,
         }))
 }
