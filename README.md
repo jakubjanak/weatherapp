@@ -30,7 +30,7 @@ touch .env
 ```
 API klíč si vygenerujeme na stránkách OpenWeather ve svém profilu: https://openweathermap.org/api. Následně ho vložíme do souboru .env. Proměnnou musíme pojmenovat VITE_OPENWEATHER_API_KEY.
 
-4. Spuštění
+5. Spuštění
 ```bash
 npm run dev
 ```
